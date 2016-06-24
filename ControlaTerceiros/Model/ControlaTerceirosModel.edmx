@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GTIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apoio_Aplicabilidade">
+          <Key>
+            <PropertyRef Name="apoio_aplicabilidade_id" />
+          </Key>
+          <Property Name="apoio_aplicabilidade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apoio_grupo_id" Type="int" Nullable="false" />
+          <Property Name="tabela" Type="varchar" MaxLength="128" />
+          <Property Name="coluna" Type="varchar" MaxLength="128" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apoio_Grupo">
+          <Key>
+            <PropertyRef Name="apoio_grupo_id" />
+          </Key>
+          <Property Name="apoio_grupo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apoio_Item">
+          <Key>
+            <PropertyRef Name="apoio_item_id" />
+          </Key>
+          <Property Name="apoio_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apoio_grupo_id" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ordem" Type="tinyint" />
+          <Property Name="indicativo_ativo" Type="bit" Nullable="false" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="empresa_id" />
+          </Key>
+          <Property Name="empresa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razao_social" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="cnpj" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="pessoa_id" />
+          </Key>
+          <Property Name="pessoa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome_completo" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="nome_usual" Type="varchar" MaxLength="20" />
+          <Property Name="cpf_numero" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="rg_numero" Type="varchar" MaxLength="20" />
+          <Property Name="rg_data_emissao" Type="datetime2" Precision="0" />
+          <Property Name="rg_orgao_emissor" Type="varchar" MaxLength="6" />
+          <Property Name="rg_uf_aiid" Type="int" Nullable="false" />
+          <Property Name="numero_foto" Type="varchar" MaxLength="20" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pessoa_Empresa">
+          <Key>
+            <PropertyRef Name="pessoa_empresa_id" />
+          </Key>
+          <Property Name="pessoa_empresa_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="responsavel_id" Type="int" Nullable="false" />
+          <Property Name="empresa_id" Type="int" Nullable="false" />
+          <Property Name="pessoa_id" Type="int" Nullable="false" />
+          <Property Name="data_inicio" Type="datetime2" Precision="0" />
+          <Property Name="data_termino" Type="datetime2" Precision="0" />
+          <Property Name="registro_iamspe" Type="varchar" MaxLength="10" />
+          <Property Name="numero_proximidade_cracha" Type="varchar" MaxLength="10" />
+          <Property Name="descricao_funcao" Type="varchar" MaxLength="50" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Responsavel">
+          <Key>
+            <PropertyRef Name="responsavel_id" />
+          </Key>
+          <Property Name="responsavel_id" Type="int" Nullable="false" />
+          <Property Name="registro_iamspe" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nome_completo" Type="varchar" MaxLength="70" />
+          <Property Name="ramal" Type="varchar" MaxLength="20" />
+          <Property Name="registro_criado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_em" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="registro_alterado_por" Type="varchar" MaxLength="20" />
+          <Property Name="registro_versao" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Apoio_Grupo_1">
+          <End Role="Apoio_Grupo" Type="Self.Apoio_Grupo" Multiplicity="1" />
+          <End Role="Apoio_Item" Type="Self.Apoio_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apoio_Grupo">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Principal>
+            <Dependent Role="Apoio_Item">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apoio_Grupo_2">
+          <End Role="Apoio_Grupo" Type="Self.Apoio_Grupo" Multiplicity="1" />
+          <End Role="Apoio_Aplicabilidade" Type="Self.Apoio_Aplicabilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apoio_Grupo">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Principal>
+            <Dependent Role="Apoio_Aplicabilidade">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_1">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="empresa_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="empresa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_1">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoa_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="pessoa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Responsavel_1">
+          <End Role="Responsavel" Type="Self.Responsavel" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsavel">
+              <PropertyRef Name="responsavel_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="responsavel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GTIModelStoreContainer">
+          <EntitySet Name="Apoio_Aplicabilidade" EntityType="Self.Apoio_Aplicabilidade" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Apoio_Grupo" EntityType="Self.Apoio_Grupo" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Apoio_Item" EntityType="Self.Apoio_Item" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Pessoa_Empresa" EntityType="Self.Pessoa_Empresa" Schema="Terceiro" store:Type="Tables" />
+          <EntitySet Name="Responsavel" EntityType="Self.Responsavel" Schema="Terceiro" store:Type="Tables" />
+          <AssociationSet Name="FK_Apoio_Grupo_1" Association="Self.FK_Apoio_Grupo_1">
+            <End Role="Apoio_Grupo" EntitySet="Apoio_Grupo" />
+            <End Role="Apoio_Item" EntitySet="Apoio_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apoio_Grupo_2" Association="Self.FK_Apoio_Grupo_2">
+            <End Role="Apoio_Grupo" EntitySet="Apoio_Grupo" />
+            <End Role="Apoio_Aplicabilidade" EntitySet="Apoio_Aplicabilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_1" Association="Self.FK_Empresa_1">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_1" Association="Self.FK_Pessoa_1">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Responsavel_1" Association="Self.FK_Responsavel_1">
+            <End Role="Responsavel" EntitySet="Responsavel" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GTIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Apoio_Aplicabilidade">
+          <Key>
+            <PropertyRef Name="apoio_aplicabilidade_id" />
+          </Key>
+          <Property Name="apoio_aplicabilidade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apoio_grupo_id" Type="Int32" Nullable="false" />
+          <Property Name="tabela" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="coluna" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Apoio_Grupo" Relationship="Self.FK_Apoio_Grupo_2" FromRole="Apoio_Aplicabilidade" ToRole="Apoio_Grupo" />
+        </EntityType>
+        <EntityType Name="Apoio_Grupo">
+          <Key>
+            <PropertyRef Name="apoio_grupo_id" />
+          </Key>
+          <Property Name="apoio_grupo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Apoio_Aplicabilidade" Relationship="Self.FK_Apoio_Grupo_2" FromRole="Apoio_Grupo" ToRole="Apoio_Aplicabilidade" />
+          <NavigationProperty Name="Apoio_Item" Relationship="Self.FK_Apoio_Grupo_1" FromRole="Apoio_Grupo" ToRole="Apoio_Item" />
+        </EntityType>
+        <EntityType Name="Apoio_Item">
+          <Key>
+            <PropertyRef Name="apoio_item_id" />
+          </Key>
+          <Property Name="apoio_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apoio_grupo_id" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ordem" Type="Byte" />
+          <Property Name="indicativo_ativo" Type="Boolean" Nullable="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Apoio_Grupo" Relationship="Self.FK_Apoio_Grupo_1" FromRole="Apoio_Item" ToRole="Apoio_Grupo" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="empresa_id" />
+          </Key>
+          <Property Name="empresa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="razao_social" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cnpj" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Pessoa_Empresa" Relationship="Self.FK_Empresa_1" FromRole="Empresa" ToRole="Pessoa_Empresa" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="pessoa_id" />
+          </Key>
+          <Property Name="pessoa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome_completo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome_usual" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cpf_numero" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rg_numero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rg_data_emissao" Type="DateTime" Precision="0" />
+          <Property Name="rg_orgao_emissor" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="rg_uf_aiid" Type="Int32" Nullable="false" />
+          <Property Name="numero_foto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Pessoa_Empresa" Relationship="Self.FK_Pessoa_1" FromRole="Pessoa" ToRole="Pessoa_Empresa" />
+        </EntityType>
+        <EntityType Name="Pessoa_Empresa">
+          <Key>
+            <PropertyRef Name="pessoa_empresa_id" />
+          </Key>
+          <Property Name="pessoa_empresa_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="responsavel_id" Type="Int32" Nullable="false" />
+          <Property Name="empresa_id" Type="Int32" Nullable="false" />
+          <Property Name="pessoa_id" Type="Int32" Nullable="false" />
+          <Property Name="data_inicio" Type="DateTime" Precision="0" />
+          <Property Name="data_termino" Type="DateTime" Precision="0" />
+          <Property Name="registro_iamspe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="numero_proximidade_cracha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="descricao_funcao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Empresa" Relationship="Self.FK_Empresa_1" FromRole="Pessoa_Empresa" ToRole="Empresa" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Pessoa_1" FromRole="Pessoa_Empresa" ToRole="Pessoa" />
+          <NavigationProperty Name="Responsavel" Relationship="Self.FK_Responsavel_1" FromRole="Pessoa_Empresa" ToRole="Responsavel" />
+        </EntityType>
+        <EntityType Name="Responsavel">
+          <Key>
+            <PropertyRef Name="responsavel_id" />
+          </Key>
+          <Property Name="responsavel_id" Type="Int32" Nullable="false" />
+          <Property Name="registro_iamspe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome_completo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="ramal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_criado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_em" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="registro_alterado_por" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registro_versao" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Pessoa_Empresa" Relationship="Self.FK_Responsavel_1" FromRole="Responsavel" ToRole="Pessoa_Empresa" />
+        </EntityType>
+        <Association Name="FK_Apoio_Grupo_2">
+          <End Role="Apoio_Grupo" Type="Self.Apoio_Grupo" Multiplicity="1" />
+          <End Role="Apoio_Aplicabilidade" Type="Self.Apoio_Aplicabilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apoio_Grupo">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Principal>
+            <Dependent Role="Apoio_Aplicabilidade">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apoio_Grupo_1">
+          <End Role="Apoio_Grupo" Type="Self.Apoio_Grupo" Multiplicity="1" />
+          <End Role="Apoio_Item" Type="Self.Apoio_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apoio_Grupo">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Principal>
+            <Dependent Role="Apoio_Item">
+              <PropertyRef Name="apoio_grupo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empresa_1">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="empresa_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="empresa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pessoa_1">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoa_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="pessoa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Responsavel_1">
+          <End Role="Responsavel" Type="Self.Responsavel" Multiplicity="1" />
+          <End Role="Pessoa_Empresa" Type="Self.Pessoa_Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsavel">
+              <PropertyRef Name="responsavel_id" />
+            </Principal>
+            <Dependent Role="Pessoa_Empresa">
+              <PropertyRef Name="responsavel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GTIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apoio_Aplicabilidade" EntityType="Self.Apoio_Aplicabilidade" />
+          <EntitySet Name="Apoio_Grupo" EntityType="Self.Apoio_Grupo" />
+          <EntitySet Name="Apoio_Item" EntityType="Self.Apoio_Item" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
+          <EntitySet Name="Pessoa_Empresa" EntityType="Self.Pessoa_Empresa" />
+          <EntitySet Name="Responsavel" EntityType="Self.Responsavel" />
+          <AssociationSet Name="FK_Apoio_Grupo_2" Association="Self.FK_Apoio_Grupo_2">
+            <End Role="Apoio_Grupo" EntitySet="Apoio_Grupo" />
+            <End Role="Apoio_Aplicabilidade" EntitySet="Apoio_Aplicabilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apoio_Grupo_1" Association="Self.FK_Apoio_Grupo_1">
+            <End Role="Apoio_Grupo" EntitySet="Apoio_Grupo" />
+            <End Role="Apoio_Item" EntitySet="Apoio_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empresa_1" Association="Self.FK_Empresa_1">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pessoa_1" Association="Self.FK_Pessoa_1">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Responsavel_1" Association="Self.FK_Responsavel_1">
+            <End Role="Responsavel" EntitySet="Responsavel" />
+            <End Role="Pessoa_Empresa" EntitySet="Pessoa_Empresa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GTIModelStoreContainer" CdmEntityContainer="GTIEntities">
+          <EntitySetMapping Name="Apoio_Aplicabilidade">
+            <EntityTypeMapping TypeName="GTIModel.Apoio_Aplicabilidade">
+              <MappingFragment StoreEntitySet="Apoio_Aplicabilidade">
+                <ScalarProperty Name="apoio_aplicabilidade_id" ColumnName="apoio_aplicabilidade_id" />
+                <ScalarProperty Name="apoio_grupo_id" ColumnName="apoio_grupo_id" />
+                <ScalarProperty Name="tabela" ColumnName="tabela" />
+                <ScalarProperty Name="coluna" ColumnName="coluna" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apoio_Grupo">
+            <EntityTypeMapping TypeName="GTIModel.Apoio_Grupo">
+              <MappingFragment StoreEntitySet="Apoio_Grupo">
+                <ScalarProperty Name="apoio_grupo_id" ColumnName="apoio_grupo_id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apoio_Item">
+            <EntityTypeMapping TypeName="GTIModel.Apoio_Item">
+              <MappingFragment StoreEntitySet="Apoio_Item">
+                <ScalarProperty Name="apoio_item_id" ColumnName="apoio_item_id" />
+                <ScalarProperty Name="apoio_grupo_id" ColumnName="apoio_grupo_id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="indicativo_ativo" ColumnName="indicativo_ativo" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="GTIModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="empresa_id" ColumnName="empresa_id" />
+                <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+                <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="GTIModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="pessoa_id" ColumnName="pessoa_id" />
+                <ScalarProperty Name="nome_completo" ColumnName="nome_completo" />
+                <ScalarProperty Name="nome_usual" ColumnName="nome_usual" />
+                <ScalarProperty Name="cpf_numero" ColumnName="cpf_numero" />
+                <ScalarProperty Name="rg_numero" ColumnName="rg_numero" />
+                <ScalarProperty Name="rg_data_emissao" ColumnName="rg_data_emissao" />
+                <ScalarProperty Name="rg_orgao_emissor" ColumnName="rg_orgao_emissor" />
+                <ScalarProperty Name="rg_uf_aiid" ColumnName="rg_uf_aiid" />
+                <ScalarProperty Name="numero_foto" ColumnName="numero_foto" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa_Empresa">
+            <EntityTypeMapping TypeName="GTIModel.Pessoa_Empresa">
+              <MappingFragment StoreEntitySet="Pessoa_Empresa">
+                <ScalarProperty Name="pessoa_empresa_id" ColumnName="pessoa_empresa_id" />
+                <ScalarProperty Name="responsavel_id" ColumnName="responsavel_id" />
+                <ScalarProperty Name="empresa_id" ColumnName="empresa_id" />
+                <ScalarProperty Name="pessoa_id" ColumnName="pessoa_id" />
+                <ScalarProperty Name="data_inicio" ColumnName="data_inicio" />
+                <ScalarProperty Name="data_termino" ColumnName="data_termino" />
+                <ScalarProperty Name="registro_iamspe" ColumnName="registro_iamspe" />
+                <ScalarProperty Name="numero_proximidade_cracha" ColumnName="numero_proximidade_cracha" />
+                <ScalarProperty Name="descricao_funcao" ColumnName="descricao_funcao" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Responsavel">
+            <EntityTypeMapping TypeName="GTIModel.Responsavel">
+              <MappingFragment StoreEntitySet="Responsavel">
+                <ScalarProperty Name="responsavel_id" ColumnName="responsavel_id" />
+                <ScalarProperty Name="registro_iamspe" ColumnName="registro_iamspe" />
+                <ScalarProperty Name="nome_completo" ColumnName="nome_completo" />
+                <ScalarProperty Name="ramal" ColumnName="ramal" />
+                <ScalarProperty Name="registro_criado_em" ColumnName="registro_criado_em" />
+                <ScalarProperty Name="registro_alterado_em" ColumnName="registro_alterado_em" />
+                <ScalarProperty Name="registro_alterado_por" ColumnName="registro_alterado_por" />
+                <ScalarProperty Name="registro_versao" ColumnName="registro_versao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

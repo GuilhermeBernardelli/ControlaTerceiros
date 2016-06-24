@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b9fcebcf9d647918700dfd7a4966951" Name="Diagram1">
+        <EntityTypeShape EntityType="GTIModel.Apoio_Aplicabilidade" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Apoio_Grupo" Width="1.5" PointX="5.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Apoio_Item" Width="1.5" PointX="8" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Empresa" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Pessoa" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Pessoa_Empresa" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GTIModel.Responsavel" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="GTIModel.FK_Apoio_Grupo_2" ManuallyRouted="false" />
+        <AssociationConnector Association="GTIModel.FK_Apoio_Grupo_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GTIModel.FK_Empresa_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GTIModel.FK_Pessoa_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GTIModel.FK_Responsavel_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
